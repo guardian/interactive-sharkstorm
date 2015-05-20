@@ -1,0 +1,525 @@
+/**
+ * Project: Sharknado
+ * File:    Main SCSS
+ */
+
+
+$guss-webfonts-base-url: '//pasteup.guim.co.uk/fonts/';
+
+@import 'bower_components/pasteup-palette/src/_palette';
+@import 'bower_components/guss-webfonts/src/_webfonts.scss';
+@import 'bower_components/guss-typography/_typography.scss';
+
+@import 'partials/reset';
+@import 'partials/fonts';
+
+@import 'site';
+@include guss-webfonts();
+// @include guss-typography-defaults;
+
+body{
+	// margin:0 10px;
+	// background:#eee;
+}
+
+figure.element-interactive.interactive{
+	margin:0;
+}
+
+.guInteractive {
+	max-width:1280px;
+	margin:0 auto;
+	background:#fff;
+	// padding-top:20px;
+	-webkit-font-smoothing:antialiased;
+    padding-bottom:250px;
+	color:#333;
+    font-family:$f-serif-text;
+	h1,h2,h3,h4,h5{
+		font-family:$f-serif-headline;
+	}
+    .interactive_statement{
+        // border-top:1px solid #dcdcdc;
+        font-family:$f-sans-serif-text;
+        font-size:14px;
+        color:#767676;
+    }
+    .mythContainer{
+    	margin-bottom:60px;
+    	position: relative;
+    	&.shortContainer{
+			.mythContent{
+				.toggleReadMore{
+					display:none;
+				}
+				.mythParagraphs:after{
+					background:none;
+				}
+				&:after{
+					background:none;
+				}
+			}
+		}
+    	img{
+    		width:100%;
+    	}
+    	.mythHeader{
+    		line-height: 0;
+    	}
+    	.titleContainer{
+    		margin-right:0;
+    		box-sizing:border-box;
+    		padding:5px 10px 5px 0;
+    		z-index:5;
+    		position: relative;
+    		h2{
+    			margin:0;
+	    		font-weight:600;
+	    		font-size:16px;
+	    		line-height: 1.2em;
+	    		border-top:none;
+                width:70%;
+                float:left;
+	    		.mythLabel,.mythLabelFact{
+	    			color:#005689;
+	    			font-weight:600;
+	    			margin-bottom:0;
+	    		}
+                .mythTitle{
+                    color:#4bc6df;
+                }
+                .mythLabel,.mythTitle{
+                    display: none;
+                }
+	    	}
+	    }
+	    .mythContent{
+	    	margin:0;
+	    	position: relative;
+            max-height:360px;
+	    	h3{
+	    		line-height: 1.2em;
+	    		font-family:$f-serif-headline;
+	    		font-size:18px;
+	    		width:70%;
+                float:left;
+	    		font-weight:normal;
+	    		margin-bottom:0;
+	    		margin-top:0;
+	    		span{
+	    		}
+	    	}
+	    	.mythText{
+	    		margin-left:0;
+	    		position: static;
+                clear:both;
+	    	}
+	    	a{
+	    		color: map-get($pasteup-palette, 'guardian-brand');
+	    	}
+	    	overflow:hidden;
+
+		    &:after{
+	    		content:'';
+	    		display:block;
+	    		height:50px;
+	    		width:100%;
+	    		// background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1));
+	    		background:rgba(255,255,255,0.9);
+	    		position:absolute;
+	    		bottom:0;
+	    	}
+	    }
+	    .mythParagraphs{
+	    	// border-left:1px solid #dcdcdc;
+	    	// padding-left: 10px;
+	    	
+	    	overflow:hidden;
+	    	position:relative;
+	    	p{
+	    		font-size:14px;
+                line-height:1.3em;
+	    	}
+	    }
+	    
+	    .toggleReadMore{
+	    	background:#4bc6df;
+	    	z-index:5;
+	    	position:absolute;
+	    	bottom:0;
+	    	left:0;
+	    	height:32px;
+	    	width:auto;
+	    	padding:0 10px;
+	    	line-height: 0;
+	    	color:#333;
+	    	border:none;
+	    	border-radius:100px;
+	    	font-family: 'Guardian Text Sans Web';
+	    	font-size:14px;
+	    	display: block;
+	    	font-weight:bold;
+	    	outline:none;
+	    	cursor:pointer;
+	    	transition: background 0.4s;
+	    	width:120px;
+	    	&:hover{
+	    		background:#005689;
+                color:#fff;
+	    	}
+	    	&:before{
+	    		content:'Read more';
+	    	}
+	    }
+	    &.active{
+	    	.mythContent{
+		    	max-height: none;
+		    	&:after{
+	    			display:none;
+		    	}
+		    	.mythText{
+		    		max-height:none;
+		    	}
+	    	}
+	    	
+	    	
+		    .toggleReadMore{
+		    	background:#333;
+		    	color:#fff;
+		    	-webkit-font-smoothing: antialiased;
+		    	margin-top:10px;
+		    	position:relative;
+		    	width:200px;
+		    }
+		    .toggleReadMore:before{
+		    	content:'Close explanation';
+		    }
+		    .shareButtons{
+		    	border:none;
+		    }
+	    }
+	    .shareButtons{
+	    	font-family: $f-sans-serif-text;
+	    	font-size:14px;
+	    	color:#767676;
+	    	margin-top:0;
+	    	padding-bottom:10px;
+            margin-right:-10px;
+            margin-top:-18px;
+	    	float:right;
+            width:70px;
+	    	p{
+	    		margin:0 0 5px;
+	    	}
+	    	button{
+	    		background:#333;
+	    		width:32px;
+	    		height:32px;
+	    		border:none;
+	    		border-radius:9000px;
+	    		display:inline-block;
+	    		vertical-align: top;
+	    		color:#fff;
+                margin-bottom:5px;
+	    		cursor:pointer;
+                outline:none;
+	    		&#shareTwitter{
+	    			background:#03b3ee url(../imgs/twitterIcon.svg) no-repeat center center;
+	    			&:hover{
+		    			background-color:darken(#03b3ee,10%);
+		    		}
+	    		}
+	    		&#shareFacebook{
+	    			background:#3067a3 url(../imgs/facebookIcon.svg) no-repeat center center;
+	    			&:hover{
+		    			background-color:darken(#3067a3,10%);
+		    		}
+	    		}
+                &#sharePinterest{
+                    background:#b9252c url(../imgs/pinterestIcon.svg) no-repeat center center;
+                    &:hover{
+                        background-color:darken(#b9252c,10%);
+                    }
+                }
+                &#shareTumblr{
+                    background:#36465d url(../imgs/tumblrIcon2.svg) no-repeat center center;
+                    background-size:11px;
+                    &:hover{
+                        background-color:darken(#36465d,10%);
+                    }
+                }
+
+	    	}
+	    }
+
+    }
+    @media(min-width:520px){
+        .mythContainer{
+            .shareButtons{
+                position:absolute;
+                width:auto;
+                right:0;
+                margin-right:0;
+                margin-top:0;
+                top:8px;
+            }
+            .titleContainer h2,.mythContent h3{
+                float:none;
+                width:auto;
+                margin-right:120px;
+            }
+
+        }
+    }
+    @media(min-width:640px){
+    	max-width:940px;
+    	margin:0 auto;
+    	.mythContainer{
+    		.mythHeader{
+    			position: relative;
+    		}
+    		.titleContainer{
+    			position: relative;
+    			background:transparent;
+    			padding:0;
+    			left:0;
+    			width:auto;
+    			margin-top:15px;
+    			margin-right:0;
+    			h2{
+    				margin:0;
+    				padding:0;
+    				font-size:28px;
+    				line-height: 1.2em;
+    				color:#333;
+                    margin-right:100px;
+                    
+    				.mythLabel{
+    					// display:inline-block;
+    				}
+    				.labelInner,.mythTitle{
+    				}
+    				.mythTitle,.mythLabel{
+    					font-weight:600;
+    				}
+    			}
+
+    		}
+    		.mythContent{
+    			margin:0;
+    			.mythText{
+    				margin-right:100px;
+    				max-width:540px;
+                    margin-left:0;
+    			}
+    			
+    			.toggleReadMore{
+                    left:0;
+    			}
+                h3{
+                    font-size:22px;
+                    margin-top:0;
+                    margin-right:100px;
+                    font-weight:normal;
+                }
+    		}
+    		.shareButtons{
+    			max-width:180px;
+    			top:0;
+    			margin-top:0;
+    			position:absolute;
+    			right:0;
+    		}
+
+    	}
+    }
+    @media(min-width:880px){
+    	.mythContainer {
+            .mythContent{
+        		.mythText{
+        			max-width:none;
+        		}
+        		.mythParagraphs{
+        			column-count:2;
+        			margin-top:20px;
+        			max-width:none;
+        			p:first-child{
+        				margin-top:0;
+        			}
+        		}
+        		.toggleReadMore{
+                    
+        		}
+            }
+            &.active{
+                .toggleReadMore{
+                    margin-left:0;
+                }
+            }
+            
+    	}
+    }
+    @media(max-width:1140px){
+    	.imageContainer{
+    		background-image:none !important;
+    	}
+    }
+    @media(min-width:1140px){
+    	max-width:1280px;
+    	.mythContainer{
+    		margin-bottom:0px;
+
+    		.mythHeader{
+    			width:49.5%;
+    			float:left;
+    			h2{
+    				text-align: right;
+    				.mythTitle{
+    					margin-left:240px;
+    					margin-right:0;
+    				}
+    			}
+    		}
+    		.titleContainer{
+    			margin:0 0 4px 0;
+                width:25%;
+                float:left;
+                h2{
+                    font-size:16px;
+                    margin-right:0;
+                    .mythLabel,.mythTitle{
+                        display:none;
+                    }
+                }
+    		}
+    		.mythContent{
+    			width:49.5%;
+    			float:left;
+    			margin:0 0 0 1%;
+    			padding: 0 0;
+    			// border-top:1px solid #dcdcdc;
+    			box-sizing:border-box;
+    			position: absolute;
+    			height:100%;
+    			right:0;
+    			overflow:hidden;
+    			max-height:none;
+    			.mythText{
+    				margin-left:0;
+    				margin-right:0;
+    				position: static;
+                    max-height:none;
+                    width:72%;
+                    float:right;
+                    clear:none;
+    			}
+    			h3{
+    				margin-top:0;
+    				font-size:20px;
+    				margin-right:0;
+    			}
+    			.toggleReadMore{
+    				position: absolute;
+    				z-index:6;
+    				margin:0;
+                    left:28%;
+    			}
+    			.mythParagraphs{
+    				padding-right:0;
+    				margin-right:0;
+    				margin-top:0;
+    				border-left:none;
+    				z-index:5;
+    				column-count:1;
+    				max-height: none;
+    				p{
+    					font-size:14px;
+    				}
+    				&:after{
+    					display:none;
+    				}
+    			}
+    			
+    			&:after{
+    				// background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,1));
+    				background:rgba(255,255,255,0.9);
+    				height:50px;
+    				position:absolute;
+    				bottom:0;
+    				left:28%;
+    				content:'';
+    				z-index:5;
+    			}
+    		}
+    		
+    		&:after{
+    			content:'';
+    			clear:both;
+    			display:block;
+    		}
+    		&.background{
+    			opacity:0.3;
+    		}
+    		&.active{
+    			.mythContent{
+    				height:auto;
+    				overflow:visible;
+    				&:after{
+    					display:none;
+    				}
+    				h3{
+    					position:relative;
+    					z-index:3;
+    				}
+    				&:before{
+	    				display:block;
+	    				content:'';
+	    				width:100%;
+	    				height:100%;
+	    				top:-10px;
+	    				position: absolute;
+	    				border:1px solid #dcdcdc;
+						margin-left:-11px;
+						padding-left:10px;
+						margin-right:-11px;
+						padding-right:10px;
+						box-shadow: 0 2px 2px rgba(0,0,0,0.1);
+						background:#fff;
+						z-index:3;
+	    			}
+    				.toggleReadMore{
+    					position: relative;
+    					right:auto;
+    					top:auto;
+    					margin-bottom:20px;
+    					left:auto;
+	    				transform:none;
+    				}
+    			}
+    		}
+    		.shareButtons{
+    			z-index:5;
+    			top:auto;
+                left:0;
+    			border-bottom:none;
+                position:relative;
+                float:none;
+                right:auto;
+                margin-top:20px;
+                font-size:0;
+                button{
+                    margin-right:2px;
+                }
+    		}
+    	}
+        .mythDivider{
+            width:100%;
+            height:1px;
+            border-top:1px solid #dcdcdc;
+            margin:20px 0;
+        }
+
+
+    	
+    }
+}	

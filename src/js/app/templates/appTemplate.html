@@ -1,0 +1,44 @@
+<div class="guInteractive">
+
+        {{#myths}}
+            <div class="mythContainer" id="myth{{item}}">
+                <div class="mythHeader">
+                    <div class="imageContainer" style="">
+                        <img src="{{articleImage}}" />
+                    </div>
+                </div>
+                
+                <div class="mythContent">
+                    <div class="titleContainer">
+                        <h2>
+                            <span class="mythLabelFact">In fact</span>
+                            <span class="mythLabel">Myth {{item}}</span>
+                            <span class="mythTitle">{{myth}}</span>
+                        </h2>
+                        <h3>{{truth}}</h3>
+                         <div class="shareButtons">
+                            <button data-source="twitter" id="shareTwitter" data-myth-number="{{item}}"></button>
+                            <button data-source="facebook" id="shareFacebook" data-myth-number="{{item}}"></button>
+                            <button data-source="pinterest" id="sharePinterest" data-myth-number="{{item}}"></button>
+                            <button data-source="tumblr" id="shareTumblr" data-myth-number="{{item}}"></button>
+                        </div>
+                    </div>
+                   
+                    <div class="mythText">
+                        <div class="mythParagraphs">
+                            {{#bodytext}}
+                                <p>{{{.}}}</p>
+                            {{/bodytext}}
+                        </div>
+                        <button class="toggleReadMore"></button>
+                    </div>
+                </div>
+            </div>
+            <div class="mythDivider"></div>
+        {{/myths}}
+        <div class="interactive_statement">
+            <p>James Woodford is Guardian Australia’s ocean correspondent. The position is a non-profit journalism project funded by the Pew Charitable Trusts. For more information about Woodford’s work for Guardian Australia, <a href="http://www.theguardian.com/info/2014/oct/28/james-woodford-reports-for-guardian-australia-as-ocean-correspondent?view=mobile">click here</a>. Great White by James Woodford, published by Pan Macmillan Australia, is out now.</p>
+        </div>
+
+    
+</div>
